@@ -1,0 +1,88 @@
+.row {
+  margin: 40px 0;
+  padding: 0 4%;
+}
+
+.rowPage {
+  margin: 20px 0;
+  padding: 0 4%;
+}
+
+.rowTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #e5e5e5;
+  transition: color 0.3s;
+}
+
+.rowTitle:hover {
+  color: #fff;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px 15px;
+  padding: 20px 0;
+}
+
+.arrow {
+  position: absolute;
+  height: calc(100% - 40px);
+  width: 50px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.container:hover .arrow {
+  opacity: 1;
+}
+
+.left { left: -10px; }
+.right { right: -10px; }
+
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+  width: 60px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+
+@media (max-width: 768px) {
+  .rowCard { width: calc(50vw - 20px) !important; flex: 0 0 calc(50vw - 20px) !important; }
+  .cardImage { height: auto !important; aspect-ratio: 2/3; }
+  .hoverContent { display: none !important; }
+}
+

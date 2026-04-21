@@ -1,0 +1,213 @@
+.pricingContainer {
+  min-height: 100vh;
+  padding: 120px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #1a0f0f 0%, #000 100%);
+  color: white;
+}
+
+.messageBox {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.messageBox h2 {
+  font-size: 2.5rem;
+  color: #cca13e;
+  margin-bottom: 15px;
+}
+
+.messageBox p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.plansWrapper {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.planCard {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 40px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.planCard:hover {
+  transform: translateY(-10px);
+}
+
+.premiumCard {
+  border-color: #cca13e;
+  background: linear-gradient(180deg, #1f1807 0%, #111 100%);
+  box-shadow: 0 10px 40px rgba(204, 161, 62, 0.15);
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #cca13e;
+  color: #000;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.planCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #888;
+}
+
+.premiumCard .price {
+  color: #cca13e;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  flex-grow: 1;
+}
+
+.features li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+.features li.inactive {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.currentBtn, .subscribeBtn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.currentBtn {
+  background: #333;
+  color: #888;
+}
+
+.subscribeBtn {
+  background: linear-gradient(90deg, #d4af37, #b28d22);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(204, 161, 62, 0.4);
+}
+
+.subscribeBtn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.closeBtn {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.closeBtn:hover {
+  background: rgba(229, 9, 20, 0.8);
+  border-color: #e50914;
+  transform: rotate(90deg);
+}
+
+.activeVipBox {
+  text-align: center;
+  padding: 80px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.activeVipBox h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.activeDetails {
+  background: rgba(204, 161, 62, 0.1);
+  padding: 20px 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(204, 161, 62, 0.2);
+  margin: 20px 0;
+}
+
+.statusBadge {
+  color: #cca13e;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.backBtn {
+  background: linear-gradient(90deg, #e50914, #b20710);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+}
+
+.backBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+}
+

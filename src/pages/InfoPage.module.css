@@ -1,0 +1,491 @@
+.infoPage {
+  background: #0b0b0e;
+  min-height: 100vh;
+  color: #e0e0e0;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+}
+
+.backdropMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.heroBackdrop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(11, 11, 14, 1) 0%, rgba(11, 11, 14, 0.8) 20%, transparent 50%),
+              linear-gradient(to top, rgba(11, 11, 14, 1) 0%, transparent 30%);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding: 100px 6% 0;
+  max-width: 800px;
+}
+
+.typeBadge {
+  display: inline-block;
+  background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  background-size: 200% auto;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(179, 135, 40, 0.4);
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: gold;
+  font-weight: 800;
+}
+
+.age {
+  border: 1px solid #666;
+  padding: 0 6px;
+  font-size: 0.8rem;
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eee;
+  max-width: 600px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.actionRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.playBtn {
+  background: #e50914;
+  color: #fff;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.playBtn:hover {
+  background: #b20710;
+  transform: scale(1.05);
+}
+
+.iconBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.crewInfo p {
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.crewInfo p span {
+  font-weight: 700;
+  color: #bbb;
+}
+
+/* Content Section Layout */
+.contentSection {
+  padding: 40px 6%;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 40px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Tabs UI */
+.tabsContainer {
+  background: rgba(15, 15, 20, 0.95);
+  border-radius: 12px;
+  padding: 2px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tabsMenu {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 30px;
+}
+
+.tabsMenu button {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #777;
+  position: relative;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tabsMenu button:hover {
+  color: #fff;
+}
+
+.activeTab {
+  color: #e50914 !important;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e50914;
+  border-radius: 2px;
+}
+
+.tabContent {
+  padding: 25px;
+}
+
+.epSelectorRow {
+  margin-bottom: 25px;
+}
+
+.rangeSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a20;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: fit-content;
+  color: #bbb;
+  cursor: pointer;
+}
+
+/* Vertical Episode List */
+.episodeList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.episodeCard {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.episodeCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.epThumbnail {
+  width: 180px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.epThumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.epOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.episodeCard:hover .epOverlay {
+  opacity: 1;
+}
+
+.epTime {
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.7);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.epInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.epHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.epNum {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vipTag {
+  background: #cca13e;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: black;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.epSummary {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Side Panel */
+.sidePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.relatedBox h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.relatedGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.miniCard {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.miniCard:hover {
+  transform: translateX(5px);
+}
+
+.miniCard img {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.miniInfo {
+  padding-top: 5px;
+}
+
+.miniInfo span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #eee;
+  margin-bottom: 5px;
+}
+
+.miniInfo p {
+  font-size: 0.8rem;
+  color: #cca13e;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .contentSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 70vh;
+  }
+  .heroContent {
+    padding-top: 80px;
+  }
+  .epThumbnail {
+    width: 140px;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e50914;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  z-index: 3000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.noEpisodes {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+
+.noEpisodes h3 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.noEpisodes p {
+  color: #888;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.trailerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 Aspect Ratio */
+  min-height: 100vh;
+  min-width: 177.77vh; /* 16:9 Aspect Ratio */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.videoDimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}

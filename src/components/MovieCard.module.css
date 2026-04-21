@@ -1,0 +1,142 @@
+.cardWrapper {
+  flex: 0 0 var(--card-width);
+  height: var(--card-height);
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #18181c;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+}
+
+.fallback span {
+  font-size: 0.65rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
+.infoBox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #181818;
+  padding: 10px;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.8);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.leftControls {
+  display: flex;
+  gap: 5px;
+}
+
+.iconBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(42, 42, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.match {
+  color: #46d369;
+}
+
+.year {
+  color: #fff;
+}
+
+.genres {
+  font-size: 0.6rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vipBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  color: #000;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.meta .vipBadge {
+  position: static;
+  background: #cca13e;
+  color: #000;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .cardWrapper {
+    flex: 0 0 140px;
+    height: 210px;
+  }
+}

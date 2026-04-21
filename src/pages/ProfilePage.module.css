@@ -1,0 +1,233 @@
+.profileContainer {
+  min-height: 100vh;
+  padding: 120px 6% 60px;
+  background: #050507;
+  color: white;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 30px;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.avatarLarge {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+}
+
+.userInfoSide h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  font-weight: 800;
+}
+
+.vipStatus, .basicStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.vipStatus {
+  background: #cca13e;
+  color: #000;
+  box-shadow: 0 0 15px rgba(204, 161, 62, 0.3);
+}
+
+.basicStatus {
+  background: #333;
+  color: #ccc;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255, 0.05);
+  border: 1px solid rgba(255,255,255, 0.1);
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: #ff4d4d;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 77, 77, 0.1);
+  border-color: #ff4d4d;
+}
+
+.profileLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.accountCard, .membershipCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.accountCard h3, .membershipCard h3 {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #bbb;
+}
+
+.detailRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+  color: #888;
+}
+
+.detailRow div label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.detailRow div p {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.upgradePrompt {
+  margin-top: 40px;
+  background: linear-gradient(90deg, #d4af37, #b28d22);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.upgradePrompt:hover {
+  transform: scale(1.02);
+}
+
+.upgradeText h4 {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.upgradeText p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.tierBox {
+  height: 100%;
+}
+
+.tierActive, .tierInactive {
+  padding: 25px;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tierActive {
+  background: rgba(204, 161, 62, 0.1);
+  border: 1px solid #cca13e;
+}
+
+.tierInactive {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: #666;
+}
+
+.tierHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #cca13e;
+}
+
+.expiry {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.profileWatchlist {
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .profileLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .profileHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+.loadingContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #050507;
+  color: white;
+  gap: 20px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
