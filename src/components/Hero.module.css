@@ -24,7 +24,6 @@
   filter: brightness(0.85);
 }
 
-/* Left-to-right fade for content readability */
 .overlayLeft {
   position: absolute;
   top: 0;
@@ -34,7 +33,6 @@
   background: linear-gradient(90deg, rgba(11,11,15,0.92) 0%, rgba(11,11,15,0.5) 60%, transparent 100%);
 }
 
-/* Bottom fade to merge with content below */
 .overlayBottom {
   position: absolute;
   bottom: 0;
@@ -44,7 +42,6 @@
   background: linear-gradient(0deg, #0b0b0f 0%, rgba(11,11,15,0.6) 50%, transparent 100%);
 }
 
-/* Top fade for navbar legibility */
 .overlayTop {
   position: absolute;
   top: 0;
@@ -166,11 +163,6 @@
   transition: all 0.25s;
 }
 
-.muteButton:hover {
-  border-color: white;
-  background: rgba(255,255,255,0.1);
-}
-
 .trendLabel {
   position: absolute;
   bottom: 90px;
@@ -186,24 +178,6 @@
   z-index: 2;
 }
 
-@media (max-width: 1200px) {
-  .title { font-size: 4rem; }
-}
-
-@media (max-width: 900px) {
-  .title { font-size: 3rem; }
-  .description { font-size: 1rem; }
-  .hero { height: 75vh; padding-bottom: 60px; }
-  .trendLabel { display: none; }
-}
-
-@media (max-width: 600px) {
-  .title { font-size: 2.2rem; }
-  .hero { height: 65vh; }
-  .playButton, .infoButton { padding: 10px 20px; font-size: 1rem; }
-  .description { display: none; }
-}
-
 .vipBadge {
   background: linear-gradient(45deg, #f1c40f, #f39c12);
   color: #000;
@@ -216,14 +190,54 @@
   letter-spacing: 1.5px;
 }
 
+.meta { display: flex; gap: 10px; align-items: center; }
+.match { color: #46d369; font-weight: 700; }
+.year { color: #fff; }
+.adult { border: 1px solid rgba(255,255,255,0.4); padding: 0 6px; border-radius: 2px; font-size: 0.8rem; }
 
-@media (max-width: 768px) {
-  .heroContent { width: 100%; padding-top: 15vh; }
-  .title { font-size: 2.5rem; }
-  .description { font-size: 1rem; max-width: 100%; -webkit-line-clamp: 3; }
-  .metaInfo { font-size: 0.9rem; flex-wrap: wrap; }
-  .actionButtons { flex-direction: column; gap: 10px; width: 100%; }
-  .playButton, .infoButton { width: 100%; justify-content: center; }
-  .controlsOverlay { right: 10px; bottom: 20px; }
+@media (max-width: 1200px) {
+  .title { font-size: 4rem; }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    height: auto !important;
+    min-height: 90vh !important;
+    padding: 100px 4% 150px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+  }
+  .content {
+    width: 100% !important;
+    z-index: 5 !important;
+  }
+  .title { 
+    font-size: 2.2rem !important; 
+    margin-bottom: 1rem !important; 
+    line-height: 1.1 !important;
+  }
+  .description { 
+    display: block !important;
+    font-size: 0.9rem !important; 
+    margin-bottom: 1.5rem !important;
+    max-width: 100% !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .playButton, .infoButton {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+    font-size: 1rem !important;
+  }
+  .trendLabel {
+    display: none !important;
+  }
+}

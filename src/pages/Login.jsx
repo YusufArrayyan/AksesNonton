@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { ArrowLeft } from 'lucide-react';
 import styles from './Auth.module.css';
 
 const Login = () => {
@@ -18,6 +19,9 @@ const Login = () => {
 
   return (
     <div className={styles.authPage}>
+      <Link to="/" className={styles.backHome}>
+        <ArrowLeft size={20} /> Kembali
+      </Link>
       <div className={styles.authContainer}>
         <h1 className={styles.logo}>AKSESNONTON</h1>
         <form className={styles.form} onSubmit={handleSubmit}>

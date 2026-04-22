@@ -32,6 +32,8 @@ const WatchPage = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [availableQualities, setAvailableQualities] = useState([]);
   const [currentQuality, setCurrentQuality] = useState('auto');
+  const [isAdPlaying, setIsAdPlaying] = useState(!user?.isPremium); // Skip ads for VIP
+  const [adTimer, setAdTimer] = useState(5);
 
   useEffect(() => {
     // If not logged in, boot out immediately
@@ -69,8 +71,10 @@ const WatchPage = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    if (found.trailerId) {
+    if (found.trailerId && !found.isBilibili) {
       setIsYoutube(true);
+    } else {
+      setIsYoutube(false);
     }
 
     if (found.episodes && found.episodes.length > 0) {
@@ -84,6 +88,16 @@ const WatchPage = () => {
       clearTimeout(timeout);
     };
   }, [id, user, navigate]);
+
+  useEffect(() => {
+    let timer;
+    if (isAdPlaying && adTimer > 0) {
+      timer = setInterval(() => {
+        setAdTimer(prev => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [isAdPlaying, adTimer]);
 
   // YouTube API Integration
   useEffect(() => {
@@ -269,15 +283,11 @@ const WatchPage = () => {
   };
 
   const getVideoSource = () => {
-    // 1. Check for specific high-quality mapping first
+    // 1. Check for specific movie IDs that need special assets or hardcoded links
     const specificMapping = {
-      29: "https://media.w3.org/2010/05/sintel/trailer.mp4", // Guardians GOTG
-      51: "https://media.w3.org/2010/05/bunny/trailer.mp4", // Inception (Example)
-      73: "https://d3rlna7iyyu8wu.cloudfront.net/skip_armstrong/skip_armstrong_stereo_subs.mp4", // One Piece
-      74: "https://www.w3schools.com/html/mov_bbb.mp4", // AOT
+      "trailer": "https://media.w3.org/2010/05/sintel/trailer.mp4"
     };
-
-    if (specificMapping[movie?.id]) return specificMapping[movie.id];
+    if (specificMapping[movie.id]) return specificMapping[movie.id];
     
     // 2. Genre-based mapping for diversity
     const genreMapping = {
@@ -298,7 +308,7 @@ const WatchPage = () => {
       <div className={styles.videoWrapper}>
         {movie.isBilibili ? (
           <iframe 
-            src={`https://www.bilibili.tv/en/embed/${movie.trailerId}`} 
+            src={`https://www.bilibili.tv/id/embed/${movie.trailerId}`} 
             width="100%" 
             height="100%" 
             frameBorder="0" 
@@ -321,6 +331,27 @@ const WatchPage = () => {
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           ></video>
+        )}
+
+        {isAdPlaying && (
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'black', zIndex: 50, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ padding: '40px', borderRadius: '20px', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
+              <div style={{ marginBottom: '20px', color: '#666', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Video Sponsor</div>
+              <h2 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Iklan Sedang Menayangkan...</h2>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
+                {adTimer > 0 ? (
+                  <div style={{ background: 'rgba(0,0,0,0.5)', padding: '10px 20px', borderRadius: '5px', fontSize: '0.9rem' }}>Lewati dalam {adTimer}s</div>
+                ) : (
+                  <button 
+                    onClick={() => setIsAdPlaying(false)}
+                    style={{ background: '#e50914', color: 'white', border: 'none', padding: '12px 24px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '10px' }}
+                  >
+                    Lewati Iklan <ArrowLeft size={18} style={{ transform: 'rotate(180deg)' }} />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
         )}
       </div>
 

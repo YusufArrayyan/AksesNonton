@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import styles from './PricingPage.module.css';
@@ -124,6 +124,17 @@ const PricingPage = () => {
              }
           }}>Berlangganan Sekarang</button>
         </div>
+      </div>
+
+      <div className={styles.howToBox}>
+        <h4>Cara Berlangganan:</h4>
+        <ol>
+          <li>Pilih paket <strong>Premium Cinema</strong> di atas.</li>
+          <li>Scan QRIS yang muncul menggunakan aplikasi pembayaran (DANA, OVO, dll).</li>
+          <li>Klik tombol <strong>"Saya Sudah Bayar"</strong> setelah transaksi selesai.</li>
+          <li>Data Anda akan masuk ke antrean <strong>Verifikasi Admin</strong>.</li>
+          <li>Tunggu 5-10 menit hingga status berubah menjadi <strong>VIP ACTIVE</strong>.</li>
+        </ol>
       </div>
     </div>
   );

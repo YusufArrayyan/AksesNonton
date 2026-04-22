@@ -211,3 +211,70 @@
   box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
 }
 
+
+@media (max-width: 768px) {
+  .pricingContainer {
+    padding: 80px 20px;
+  }
+  
+  .messageBox h2 {
+    font-size: 1.8rem;
+  }
+  
+  .plansWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .planCard {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px;
+  }
+  
+  .closeBtn {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .activeVipBox h2 {
+    font-size: 1.6rem;
+  }
+  
+  .activeVipBox img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  .backBtn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+.howToBox {
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.howToBox h4 {
+  color: #cca13e;
+  margin-bottom: 15px;
+}
+
+.howToBox ol {
+  padding-left: 20px;
+  color: #ccc;
+}
+
+.howToBox li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+

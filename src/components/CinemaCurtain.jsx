@@ -12,7 +12,7 @@ const CinemaCurtain = ({ onComplete }) => {
       setOpening(true);
       // Optional: Play a curtain sound effect if available
       try {
-        const audio = new Audio('/curtain-sound.mp3');
+        const audio = new Audio('curtain-sound.mp3');
         audio.volume = 0.5;
         audio.play().catch(e => console.log('Audio autoplay prevented'));
       } catch(e) {}

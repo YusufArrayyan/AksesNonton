@@ -172,3 +172,22 @@
   transform: rotate(15deg);
   opacity: 0.8;
 }
+@media (max-width: 768px) {
+  .valance {
+    height: 80px;
+  }
+  
+  .spotlight h1 {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+  
+  .spotlight p {
+    font-size: 0.9rem;
+  }
+  
+  .curtainLeft::after, .curtainRight::after {
+    width: 25px;
+    height: 6px;
+  }
+}

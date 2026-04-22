@@ -138,11 +138,10 @@ const AppContent = () => {
       <Routes>
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
-
         <Route path="/" element={
           <>
             <Hero movie={heroMovie} onOpenPricing={() => setIsPricingModalOpen(true)} />
-            <div style={{ marginTop: '-40px', position: 'relative', zIndex: 10, paddingBottom: '100px' }}>
+            <div className="home-content-wrapper" style={{ position: 'relative', zIndex: 10, paddingBottom: '100px' }}>
               <MovieRow title="Populer di AksesNonton" movies={homeCategories.popular} />
               <MovieRow title="Sedang Tren" movies={homeCategories.trending} />
               <MovieRow title="Mahakarya Film" movies={homeCategories.topRated} />

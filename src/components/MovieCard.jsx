@@ -7,7 +7,25 @@ import styles from './MovieCard.module.css';
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [displayImg, setDisplayImg] = useState(movie.img);
+  const [isSecondTry, setIsSecondTry] = useState(false);
+  const [isFinalFallback, setIsFinalFallback] = useState(false);
+
+  // Reset image state when movie changes
+  React.useEffect(() => {
+    setDisplayImg(movie.img);
+    setIsSecondTry(false);
+    setIsFinalFallback(false);
+  }, [movie.id, movie.img]);
+
+  const handleImgError = () => {
+    if (!isSecondTry && movie.backdrop && movie.backdrop !== movie.img) {
+      setDisplayImg(movie.backdrop);
+      setIsSecondTry(true);
+    } else {
+      setIsFinalFallback(true);
+    }
+  };
 
   return (
     <div
@@ -18,27 +36,27 @@ const MovieCard = ({ movie }) => {
       <motion.div
         className={styles.card}
         whileHover={{
-          scale: 1.4,
-          y: -50,
+          scale: 1.1,
+          y: 0,
           zIndex: 100,
-          transition: { duration: 0.3 }
+          transition: { duration: 0.2, ease: "easeOut" }
         }}
         onClick={() => {
           const path = movie.type === 'series' ? `/series/${movie.id}` : `/movie/${movie.id}`;
           navigate(path);
         }}
       >
-        {imgError ? (
+        {isFinalFallback ? (
           <div className={styles.fallback}>
             <Film size={36} color="#444" />
             <span>{movie.title}</span>
           </div>
         ) : (
           <img
-            src={movie.img}
+            src={displayImg}
             alt={movie.title}
             className={styles.thumbnail}
-            onError={() => setImgError(true)}
+            onError={handleImgError}
             loading="lazy"
           />
         )}
